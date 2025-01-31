@@ -1,6 +1,6 @@
 package com.bielsoft.desafioVR.enuns;
 
-public enum StatusCliente {
+public enum Status {
     Ativo,
     Inativo;
 

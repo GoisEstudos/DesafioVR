@@ -33,21 +33,27 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> cadastrarCliente(@RequestBody ClienteDto cliente) {
-        Cliente newCliente = service.cadastrarCliente(cliente);
+    public ResponseEntity<ClienteDto> cadastrarCliente(@RequestBody ClienteDto dto) {
+        ClienteDto newCliente = service.cadastrarCliente(dto);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{codigo}")
-                .buildAndExpand(newCliente.getCodigo())
+                .buildAndExpand(newCliente.codigo())
                 .toUri();
 
         return ResponseEntity.created(location).body(newCliente);
     }
 
     @PatchMapping("/{codigo}")
-    public ResponseEntity<Cliente> atualizarCliente(@PathVariable UUID codigo, @RequestBody ClienteDto cliente) {
+    public ResponseEntity<ClienteDto> atualizarCliente(@PathVariable UUID codigo, @RequestBody ClienteDto cliente) {
         return ResponseEntity.ok(service.atualizarCliente(codigo,cliente));
+    }
+
+    @PatchMapping("/ativar/{codigo}")
+    public ResponseEntity<Void> ativarCliente(@PathVariable UUID codigo) {
+        service.ativarCliente(codigo);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{codigo}")
