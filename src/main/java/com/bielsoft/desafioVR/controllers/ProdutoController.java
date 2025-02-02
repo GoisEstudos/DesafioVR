@@ -1,11 +1,8 @@
 package com.bielsoft.desafioVR.controllers;
 
-import com.bielsoft.desafioVR.dtos.ClienteDto;
 import com.bielsoft.desafioVR.dtos.ProdutoDto;
-import com.bielsoft.desafioVR.entities.Cliente;
-import com.bielsoft.desafioVR.entities.Produto;
-import com.bielsoft.desafioVR.services.ClienteService;
 import com.bielsoft.desafioVR.services.ProdutoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -36,7 +33,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<ProdutoDto> cadastrarProduto(@RequestBody ProdutoDto dto) {
+    public ResponseEntity<ProdutoDto> cadastrarProduto(@RequestBody @Valid ProdutoDto dto) {
         ProdutoDto newProduto = service.cadastrarProduto(dto);
 
         URI location = ServletUriComponentsBuilder

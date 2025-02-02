@@ -2,10 +2,8 @@ package com.bielsoft.desafioVR.services;
 
 import com.bielsoft.desafioVR.dtos.ClienteDto;
 import com.bielsoft.desafioVR.entities.Cliente;
-import com.bielsoft.desafioVR.entities.Produto;
 import com.bielsoft.desafioVR.enuns.Status;
 import com.bielsoft.desafioVR.exceptions.clienteException.ClienteNotFoundException;
-import com.bielsoft.desafioVR.exceptions.produtoException.ProdutoNotFoundException;
 import com.bielsoft.desafioVR.repositories.ClienteRepository;
 import org.springframework.stereotype.Service;
 

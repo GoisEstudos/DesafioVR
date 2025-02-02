@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 public record ClienteDto(
-        @NotBlank(message = "O codigo do cliente deve ser informado.")
         UUID codigo,
         @NotBlank(message = "O nome do cliente deve ser informado.")
         String nome,
